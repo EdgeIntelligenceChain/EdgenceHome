@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}MyBlog - Post{% endblock %}
+
+{% block page_content %}
+<h2 id="article">Posts</h2>
+{% include '_posts.html' %}
+<h2 id="comments">Comments</h2>
+{% if current_user.can(Permission.COMMENT) %}
+<div class="comment-form">
+    {{ wtf.quick_form(form) }}
+</div>
+{% endif %}
+<div class="conments">
+    {% include '_comments.html' %}
+</div>
+{% if pagination %}
+<div class="pagination">
+    {{ macros.pagination_widget(pagination, '.post', fragment='#comments', id=posts[0].id) }}
+</div>
+{% endif %}
+{% endblock %}
