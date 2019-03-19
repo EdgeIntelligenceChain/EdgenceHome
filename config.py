@@ -4,7 +4,6 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
-    FLASKY_ADMIN_EMAIL = 'admin@admin.com'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     FLASKY_COMMENTS_PER_PAGE = 5
     FLASKY_POSTS_PER_AGE = 10
