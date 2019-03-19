@@ -1,14 +1,14 @@
-## Windows下启动方式
-
-Linux上的部署之后再写
+## Ubuntu下启动方式
 
 ### 1.建立并切换到python虚拟环境
 
 切换到工程目录
 
+-p 后的<code>/opt/Python3.6.7/bin/python3.6</code>换成要使用的python解释器的路径
+
 ```
-virtualenv venv
-.\venv\Scripts\activate
+virtualenv --no-site-packages -p /opt/Python3.6.7/bin/python3.6 venv
+source venv/bin/activate
 ```
 
 ### 2.安装依赖
@@ -43,21 +43,6 @@ python start.py
 
 访问网站 http://127.0.0.1:5000/
 
-### 5. 访问所有界面
-
-右上角有<code>Log In</code>按钮
-
-![](https://ws1.sinaimg.cn/large/7e197809ly1g176184l96j20h40fhaaj.jpg)
-
-点击有注册账户功能。
-
-根据config.py文件中第7行
-
-```py
-FLASKY_ADMIN_EMAIL = 'admin@admin.com'
-```
-
-注册时若Email为<code>admin@admin.com</code>，则新账户为管理员权限，可以访问所有界面。
 
 --------------------------------------------------------------
 --------------------------------------------------------------
