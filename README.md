@@ -2,14 +2,14 @@
 
 ### 1.建立并切换到python虚拟环境
 
-切换到工程目录
-
--p 后的<code>/opt/Python3.6.7/bin/python3.6</code>换成要使用的python解释器的路径
+切换到工程目录，执行如下命令进入Python虚拟环境
 
 ```
 virtualenv --no-site-packages -p /opt/Python3.6.7/bin/python3.6 venv
 source venv/bin/activate
 ```
+其中，-p 后的<code>/opt/Python3.6.7/bin/python3.6</code>换成要使用的python解释器的路径
+其中，
 
 ### 2.安装依赖
 
