@@ -61,5 +61,68 @@ python start.py
 
 
 --------------------------------------------------------------
+## Ubuntu下的部署
+
+1. 首先需要安装nginx
+
+```
+apt install nginx
+```
+
+2. 配置nginx配置文件，之后使用
+
+```
+vim /etc/nginx/nginx.conf
+```
+
+在http模块中加入如下部分：
+
+```
+server {
+        listen 80;
+
+        location / {
+                proxy_pass http://127.0.0.1:8000;
+                proxy_set_header Host $host;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+}
+```
+
+其中，listen后表示监听的端口。之后让nginx重新加载配置文件
+
+```
+nginx -s reload
+```
+
+使用命令<code>nginx -t</code>检查配置文件是否有错误。
+
+3. 切换到项目目录，启动虚拟环境，使用gunicorn启动flask
+
+```
+source venv/bin/activate
+```
+
+安装gunicorn
+
+```
+pip install gunicorn
+```
+
+在后台方式启动gunicorn，保证ssh断开后程序也能正常运行
+
+```
+nohup gunicorn -w 4 -b 127.0.0.1:8000 start:app &
+```
+
+- -w参数表示启动多少个worker处理网络请求
+- -b参数表示将flask app绑定到哪个端口，需要与nginx.conf中的proxy_pass一致
+
+4. 测试访问
+
+在浏览器中直接输入网址 http://45.58.54.216 进行访问，默认端口为nginx.conf中设置的80端口。
+
+若要修改端口，则修改nginx的配置文件并重新加载，在ip后加<code>:port</code>的形式访问。
+
 --------------------------------------------------------------
 flask官方文档：http://flask.pocoo.org/docs/1.0/
