@@ -7,6 +7,10 @@
 
 {% block page_content %}
 <style>
+    .container {
+        padding-left: 0px;
+    }
+
     .content-section-a {
         padding: 50px 0;
         background-color: #f8f8f8
@@ -21,6 +25,7 @@
         font-size: 14px;
         color: #808080;
         line-height: 1.64em;
+        text-align: justify;
         /* font-family: Georgia, "Times New Roman", Times, serif */
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
@@ -33,6 +38,7 @@
         font-size: 14px;
         color: #808080;
         line-height: 1.64em;
+        text-align: justify;
         /* font-family: Georgia, "Times New Roman", Times, serif */
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         line-height: 2em;
@@ -46,69 +52,61 @@
 <div class="content-section-a">
     <div class="container contentbody">
         <div class="col-md-12">
-            <h2>Introduction to Edgence</h2>
-            <p>Nowadays scalable IoT management is a bottleneck of IoT development due to the geographically dispersed
-                distribution,
-                fragmented ownerships, and ever-growing population of IoT devices. To intelligently manage massive
-                decentralized
-                applications (dApps) in IoT usecases, Edgence (EDGe + intelligENCE) uses edge clouds to access IoT
-                devices
-                and users,
-                and then uses its in-built blockchain to realize self-governing and self-supervision of the edge clouds.
-                Edgence
-                proposes to use masternode technology to introduce IoT devices and users into a closed blockchain
-                system,
-                which can
-                extend the range of blockchain to IoT-based dApps. Further, masternodes do good to scalability by
-                raising
-                the TPS
-                (transactions per second) of the blockchain network. To support various dApps, a three-tier validation
-                is
-                proposed,
-                namely script validation, smartcontract validation, and masternode validation. To avoid energy
-                consumption
-                resulted by
-                blockchain consensus, Edgence proposes a random but verifiable way to elect a masternode to generate
-                each
-                new block. The
-                potential of the tailored Edgence is shown by examples of decentralized crowdsourcing and AI training.
+            <!-- <h2>Introduction to Edgence</h2> -->
+            <p style="font-size: 18px;"> Nowadays scalable IoT management is a bottleneck of IoT development due to the
+                geographically dispersed
+                distribution, fragmented ownerships, and ever-growing population of IoT devices. To intelligently manage
+                massive decentralized applications (dApps) in IoT usecases, Edgence (EDGe + intelligENCE) uses edge
+                clouds to access IoT devices and users, and then uses its in-built blockchain to realize self-governing
+                and self-supervision of the edge clouds.
+                <ul>
+                    <li>Edgence proposes to use masternode technology to introduce IoT devices and users into a closed
+                        blockchain system, which can extend the range of blockchain to IoT-based dApps.</li>
+                    <li>Further, masternodes do good to scalability by raising the TPS (transactions per second) of the
+                        blockchain network.
+                    </li>
+                    <li>
+                        To support various dApps, a three-tier validation is proposed, namely script validation,
+                        smartcontract validation, and masternode validation.
+                    </li>
+                    <li>To avoid energy consumption resulted by blockchain consensus, Edgence proposes a random but
+                        verifiable way to elect a masternode to generate each new block.
+                    </li>
+                </ul>
             </p>
-            <img src="static/1.jpg" class="center-block">
         </div>
+        <!-- <div class="col-md-12" style="text-align: center">
+            <img src="static/1.jpg" class="center-block" style="width: 90%;">
+        </div> -->
     </div>
 </div>
 <div class="content-section-b">
     <div class="container contentbody">
         <div class="col-md-5">
-            <h2>Decentralized Edgence platform running on edge clouds of mobile
-                edge computing</h2>
+            <h2>Edgence platform</h2>
             <ul>
-                <li>Edgence units edge clouds provided by personals, and then
-                    IoT devices and users can obtain services from the whole network from
-                    nearby edge cloud.</li>
-                <li>Edgence platform are made of many masternodes.</li>
-                <li>Each
-                    masternode is deployed on one edge cloud, and it hosts a blockchain node
-                    and a fixed amount of fund as collateral.</li>
+                <li>Decentralized Edgence platform running on edge clouds of mobile edge computing.</li>
+                <li>Edgence units edge clouds provided by personals, and then IoT devices and users can obtain services
+                    from the whole network from nearby edge cloud.</li>
+                <li>Edgence platform are made of many masternodes.
+                </li>
+                <li>Each masternode is deployed on one edge cloud, and it hosts a blockchain node and a fixed amount of
+                    fund as collateral.
+                </li>
             </ul>
-            <!-- <p>Edgence units edge clouds provided by personals, and then
-                    IoT devices and users can obtain services from the whole network from
-                    nearby edge cloud. Edgence platform are made of many masternodes. Each
-                    masternode is deployed on one edge cloud, and it hosts a blockchain node
-                    and a fixed amount of fund as collateral.</p> -->
         </div>
         <div class="col-md-7">
-            <img src="static/2.jpg" class="img-responsive">
+            <img src="static/1.jpg" class="img-responsive">
         </div>
     </div>
 </div>
 <div class="content-section-a">
     <div class="container contentbody">
         <div class="col-md-7">
-            <img src="static/3.jpg" class="img-responsive">
+            <img src="static/2.jpg" class="img-responsive">
         </div>
         <div class="col-md-5">
-            <h2>Masternode layer as decentralized management in Edgence</h2>
+            <h2>Masternode layer as decentralized management</h2>
             <ul>
                 <li>The set
                     of masternodes can be considered as another layer that is constructed on the
@@ -117,11 +115,6 @@
                 <li>Everyone can join or leave the masternode layer at will, if she has an edge
                     cloud and a fixed amount of fund as collateral.</li>
             </ul>
-            <!-- <p>The set
-                of masternodes can be considered as another layer that is constructed on the
-                blockchain network layer. It connects IoT usecases to the blockchain network.
-                Everyone can join or leave the masternode layer at will, if she has an edge
-                cloud and a fixed amount of fund as collateral.</p> -->
         </div>
     </div>
 </div>
@@ -136,35 +129,31 @@
                 <li>Masternode network connect real world and blockchain, and
                     generate various IoT dApps.</li>
             </ul>
-            <!-- <p>Every masternode of Edgence
-                contains a blockchain node and hardware resources, and can perform threetier
-                validation. Masternode network connect real world and blockchain, and
-                generate various IoT dApps.</p> -->
         </div>
         <div class="col-md-7">
-            <img src="static/4.jpg" class="img-responsive">
-        </div>
-        <div class="col-md-12">
-            <h2>Three steps of validator election in Edgence</h2>
-            <p>Validator election of a blockchain concerns its operational
-                efficiency and use-cost. More specifically, a better validator
-                election method of Edgence can reduce energy consumption in
-                reaching consensus across all blockchain nodes, improve TPS,
-                and lower the usage fee charged from users. Validator election
-                must meet two essential properties, namely randomness (no
-                one can predict the results in advance), and verification (no
-                one can check the selected results). In Edgence, a simple verifiable method for random
-                node selection in trustless self-organized network is designed,
-                where masternodes’ private keys together with well-designed
-                workflow contribute to the verifiability and randomness.</p>
+            <img src="static/3.jpg" class="img-responsive">
         </div>
     </div>
 </div>
 <div class="content-section-a">
     <div class="container contentbody">
         <div class="col-md-7">
-            <img src="static/usercases1.jpg" class="img-responsive">
+            <img src="static/4.jpg" class="img-responsive">
         </div>
+        <div class="col-md-5">
+            <h2>Three-tier validation of Edgence</h2>
+            <ul>
+                <li>Every masternode of Edgence contains a blockchain node and hardware resources, and can perform
+                    three-tier validation.
+                </li>
+                <li>Masternode network connect real world and blockchain, and generate various IoT dApps.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="content-section-b">
+    <div class="container contentbody">
+
         <div class="col-md-5">
             <h2>Decentralized crowdsourcing that is engined by Edgence</h2>
             <ul>
@@ -189,11 +178,16 @@
                 Edgence can provide
                 resources and management functions.</p> -->
         </div>
-
+        <div class="col-md-7">
+            <img src="static/usercases1.jpg" class="img-responsive">
+        </div>
     </div>
 </div>
-<div class="content-section-b">
+<div class="content-section-a">
     <div class="container contentbody">
+        <div class="col-md-7">
+            <img src="static/usercases2.jpg" class="img-responsive">
+        </div>
         <div class="col-md-5">
             <h2>Decentralized AI training under the management of Edgence</h2>
             <ul>
@@ -213,22 +207,18 @@
                     supervise all activities of edge clouds and remote cloud center.</li>
             </ul>
             <!-- <p>Feed-propagation and back-propagation are two
-                        ways
-                        of
-                        updating model parameters during AI training. One parameter layer is identified by one color. The first
-                        several layers
-                        are trained at many edge clouds, which is to utilize the datasets of mobile users. The last several
-                        layers
-                        are trained
-                        at a remote cloud center, which keeps communicating with edge clouds during the whole training.
-                        Edgence's
-                        work is to
-                        supervise all activities of edge clouds and remote cloud center.</p> -->
+                ways
+                of
+                updating model parameters during AI training. One parameter layer is identified by one color. The first
+                several layers
+                are trained at many edge clouds, which is to utilize the datasets of mobile users. The last several
+                layers
+                are trained
+                at a remote cloud center, which keeps communicating with edge clouds during the whole training.
+                Edgence's
+                work is to
+                supervise all activities of edge clouds and remote cloud center.</p> -->
         </div>
-        <div class="col-md-7">
-            <img src="static/usercases2.jpg" class="img-responsive">
-        </div>
-
     </div>
 </div>
 <div class="content-section-b">
@@ -236,20 +226,20 @@
         <div class="col-md-12">
             <h2>Publications</h2>
             <ul>
-                <li>J. Xu, S. Wang*, B. K. Bharat, F. Yang, A Blockchain-enabled Trustless
+                <li>Jinliang. Xu, Shangguang. Wang, Bhargava. K. Bharat, Fangchun. Yang, A Blockchain-enabled Trustless
                     Crowd-Intelligence Ecosystem on Mobile Edge Computing,
-                    IEEE&nbsp;Transactions&nbsp;on&nbsp;Industrial&nbsp;Informatics, 2019,
-                    https://ieeexplore.ieee.org/document/8632682
+                    IEEE Transactions on Industrial Informatics, 2019,
+                    https://ieeexplore.ieee.org/document/8632682.
                 </li>
                 <li>
-                    Jinliang Xu, Shangguang Wang*, Ning Zhang, Fangchun Yang, Xuemin Shen, Reward or
+                    Jinliang Xu, Shangguang Wang, Ning Zhang, Fangchun Yang, Xuemin Shen, Reward or
                     Penalty: Aligning Incentives of Stakeholders in Crowdsourcing, IEEE Transactions on Mobile
                     Computing, 2018, Doi: 10.1109/TMC.2018.2847350[<a href="/PDF/TMCxu.pdf">PDF</a>]<a
                         href="/Source code/SourceCodeFile.zip">[Source-code]</a>.
                 </li>
                 <li>
-                    S. Wang, J. Xu, N. Zhang, Y. Liu, A Survey on Service Migration
-                    in Mobile Edge Computing, IEEE Access, vol. 6, no.1,pp. 23511-3528, 2018[<a
+                    Shangguang. Wang, Jinliang. Xu, Ning. Zhang, Yujiong. Liu, A Survey on Service Migration
+                    in Mobile Edge Computing, IEEE Access, vol. 6, no.1, pp. 23511-23528, 2018[<a
                         href="/PDF/Service-Migration-Suvery.pdf">PDF</a>][<a
                         href="/demo/ServiceMigration.mp4">Demo</a>].
                 </li>
@@ -261,7 +251,7 @@
 <div class="content-section-b">
     <div class="container">
         <div class="col-md-6">
-            <img src="static/5.jpeg" class="img-responsive">
+            <img src="static/hezhao.jpg" class="img-responsive">
         </div>
         <div class="col-md-6">
             <script type="text/javascript" id="clustrmaps"
