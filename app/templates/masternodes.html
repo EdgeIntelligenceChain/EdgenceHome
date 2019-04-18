@@ -21,17 +21,45 @@
 <script type="text/javascript">
     var ipToLocation = function () {
         $.ajax({
-            url: 'http://127.0.0.1:5000/getServerInfoList',
+            // url: 'http://127.0.0.1:5000/getServerInfoList',
+            url: 'http://172.106.33.51:80/getServerInfoList',
             type: 'get',
             dataType: 'json',
             success: function (resp) {
-                var data = [];
-                var geoCoordMap = {};
+                var data = [],
+                    geoCoordMap = {},
+                    location = [];
                 for (let i = 0; i < resp.length; i++) {
-                    data[i] = { name: resp[i].city, value: 100 };
+                    // data[i] = { name: resp[i].city, value: 100 };
+                    location[i] = resp[i].city;
                     geoCoordMap[resp[i].city] = [resp[i].longitude, resp[i].latitude];
 
                 }
+
+                var location_name = [];
+                for (let i = 0; i < location.length; i++) {
+                    if (location_name.indexOf(location[i]) == -1) {
+                        location_name.push(location[i])
+                    }
+                }
+                var location_count = new Array(location_name.length);
+                for (let t = 0; t < location_count.length; t++) {
+                    location_count[t] = 0;
+                }
+                for (let p = 0; p < location_name.length; p++) {
+                    for (var j = 0; j < location.length; j++) {
+                        if (location_name[p] == location[j]) {
+                            location_count[p]++;
+                        }
+                    }
+
+                }
+                for (let m = 0; m < location_name.length; m++) {
+                    console.log(location_name[m] + "重复的次数为：" + location_count[m]);
+                    data[m] = { name: location_name[m], value: 30 * location_count[m] };
+                }
+
+
                 // 基于准备好的dom，初始化echarts实例
                 var myChart = echarts.init(document.getElementById('main'));
 
@@ -53,7 +81,7 @@
                     backgroundColor: '#404a59',
                     title: {
                         text: 'MasterNodes',
-                        subtext: 'subtextsubtextsubtext',
+                        subtext: 'masternodes of Edgence across the world',
                         sublink: 'http://www.edgence.org',
                         left: 'center',
                         textStyle: {
