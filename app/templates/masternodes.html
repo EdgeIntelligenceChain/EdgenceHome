@@ -3,12 +3,161 @@
 
 {% block head %}
 {{ super() }}
+<meta charset="utf-8">
+<script src="../static/js/echarts.js"></script>
+<script src="../static/js/jquery.js"></Script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
 {% endblock %}
 
 {% block page_content %}
 <h1>masternodes</h1>
+<div id="main" style="width: 1200px;height:800px;"></div>
 {% endblock %}
 
 {% block scripts %}
 {{ super() }}
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<script type="text/javascript">
+    var ipToLocation = function () {
+        $.ajax({
+            url: 'http://127.0.0.1:5000/getServerInfoList',
+            type: 'get',
+            dataType: 'json',
+            success: function (resp) {
+                var data = [];
+                var geoCoordMap = {};
+                for (let i = 0; i < resp.length; i++) {
+                    data[i] = { name: resp[i].city, value: 100 };
+                    geoCoordMap[resp[i].city] = [resp[i].longitude, resp[i].latitude];
+
+                }
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('main'));
+
+                var convertData = function (data) {
+                    var res = [];
+                    for (var i = 0; i < data.length; i++) {
+                        var geoCoord = geoCoordMap[data[i].name];
+                        if (geoCoord) {
+                            res.push({
+                                name: data[i].name,
+                                value: geoCoord.concat(data[i].value)
+                            });
+                        }
+                    }
+                    return res;
+                };
+
+                option = {
+                    backgroundColor: '#404a59',
+                    title: {
+                        text: 'MasterNodes',
+                        subtext: 'subtextsubtextsubtext',
+                        sublink: 'http://www.edgence.org',
+                        left: 'center',
+                        textStyle: {
+                            color: '#fff'
+                        }
+                    },
+                    tooltip: {
+                        trigger: 'item'
+                    },
+                    legend: {
+                        orient: 'vertical',
+                        y: 'bottom',
+                        x: 'right',
+                        data: ['server'],
+                        textStyle: {
+                            color: '#fff'
+                        }
+                    },
+                    geo: {
+                        map: 'world',
+                        label: {
+                            emphasis: {
+                                show: false
+                            }
+                        },
+                        roam: true,
+                        itemStyle: {
+                            normal: {
+                                areaColor: '#323c48',
+                                borderColor: '#111'
+                            },
+                            emphasis: {
+                                areaColor: '#2a333d'
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            name: 'server',
+                            type: 'scatter',
+                            coordinateSystem: 'geo',
+                            data: convertData(data),
+                            symbolSize: function (val) {
+                                return val[2] / 10;
+                            },
+                            label: {
+                                normal: {
+                                    formatter: '{b}',
+                                    position: 'right',
+                                    show: false
+                                },
+                                emphasis: {
+                                    show: true
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: '#ddb926'
+                                }
+                            }
+                        },
+                        {
+                            name: 'Top 5',
+                            type: 'effectScatter',
+                            coordinateSystem: 'geo',
+                            data: convertData(data.sort(function (a, b) {
+                                return b.value - a.value;
+                            }).slice(0, 6)),
+                            symbolSize: function (val) {
+                                return val[2] / 10;
+                            },
+                            showEffectOn: 'render',
+                            rippleEffect: {
+                                brushType: 'stroke'
+                            },
+                            hoverAnimation: true,
+                            label: {
+                                normal: {
+                                    formatter: '{b}',
+                                    position: 'right',
+                                    show: true
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: '#f4e925',
+                                    shadowBlur: 10,
+                                    shadowColor: '#333'
+                                }
+                            },
+                            zlevel: 1
+                        }
+                    ]
+                };
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            },
+            error: function () {
+
+            }
+        });
+
+
+    };
+    ipToLocation();
+</script>
 {% endblock %}
