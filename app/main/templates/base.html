@@ -11,9 +11,9 @@ Edgence := Edge + Intelligence
 
 {% block head %}
 {{ super() }}
-<link rel="shortcut icon" href="{{ url_for('static',filename='favicon.jpg') }}"
+<link rel="shortcut icon" href="{{ url_for('main.static',filename='favicon.jpg') }}"
 type="image/x-icon">
-<link rel="icon" href="{{ url_for('static',filename='favicon.jpg') }}" type="iamge/x-icon">
+<link rel="icon" href="{{ url_for('main.static',filename='favicon.jpg') }}" type="iamge/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 {% endblock %}
 
@@ -33,7 +33,7 @@ type="image/x-icon">
 
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
-                <li><a href="{{ url_for('main.masternodes') }}">Masternodes</a></li>
+                <li><a href="{{ url_for('main.masternodes') }}">Explorer</a></li>
                 <li><a href="https://github.com/EdgeIntelligenceChain" target="view_window">Github</a></li>
                 
             </ul>

@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template,url_for,redirect
 from . import main
 import IP2Location
 import json
@@ -8,13 +8,13 @@ from flask import make_response
 
 @main.route('/')
 def index():
+    print(url_for('main.static',filename='1.jpg'))
     return render_template('index.html')
 
 
 @main.route('/masternodes')
 def masternodes():
-    return render_template('masternodes.html')
-
+	return redirect(url_for("explorer.blockexplorer"))
 
 @main.route('/getServerInfoList', methods=['GET'])
 def getServerInfoList():

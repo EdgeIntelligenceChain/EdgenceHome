@@ -38,3 +38,8 @@ config = {
     'production': ProductionConfig,
     'default': DevelopmentConfig
 }
+
+explorerConfig={
+    'ip':'39.97.166.176',
+    'port':9996
+}
