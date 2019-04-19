@@ -40,6 +40,6 @@ config = {
 }
 
 explorerConfig={
-    'ip':'127.0.0.1',
+    'ip':'39.97.166.176',
     'port':9996
 }

@@ -103,6 +103,7 @@ def blockexplorer():
     blockList=[]
     resultList=inlineGetUpper(height-15,height+1)
     blockList=[block for block,txObj in resultList]
+    blockList=blockList[::-1]
 
     return render_template('blockexplorer.jinja', page='blockexplorer',blockstats=stats,blockList=blockList)
 
