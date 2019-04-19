@@ -221,7 +221,19 @@
         </div>
     </div>
 </div>
+<script src="../static/js/echarts.js"></script>
+<script src="../static/js/jquery.js"></Script>
+<!-- <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script> -->
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
 <div class="content-section-b">
+    <div class="container">
+        <div class='col-md-12'>
+            <!-- <h3>MasterNodes of edgence</h3> -->
+            <div id="main" style="width: 100%;height:350px;"></div>
+        </div>
+    </div>
+</div>
+<div class="content-section-a">
     <div class="container contentbody">
         <div class="col-md-12">
             <h2>Publications</h2>
@@ -234,7 +246,8 @@
                 <li>
                     Jinliang Xu, Shangguang Wang, Ning Zhang, Fangchun Yang, Xuemin Shen, Reward or
                     Penalty: Aligning Incentives of Stakeholders in Crowdsourcing, IEEE Transactions on Mobile
-                    Computing, 2018, Doi: 10.1109/TMC.2018.2847350[<a href="http://sguangwang.com/PDF/TMCxu.pdf">PDF</a>]<a
+                    Computing, 2018, Doi: 10.1109/TMC.2018.2847350[<a
+                        href="http://sguangwang.com/PDF/TMCxu.pdf">PDF</a>]<a
                         href="http://sguangwang.com/Source%20code/SourceCodeFile.zip">[Source-code]</a>.
                 </li>
                 <li>
@@ -276,4 +289,176 @@
 
 {% block scripts %}
 {{ super() }}
+<script type="text/javascript">
+    var ipToLocation = function () {
+        $.ajax({
+            // url: 'http://127.0.0.1:5000/getServerInfoList',
+            url: 'http://www.edgence.org/getServerInfoList',
+            type: 'get',
+            dataType: 'json',
+            success: function (resp) {
+                var data = [],
+                    geoCoordMap = {},
+                    location = [];
+                for (let i = 0; i < resp.length; i++) {
+                    // data[i] = { name: resp[i].city, value: 100 };
+                    location[i] = resp[i].city;
+                    geoCoordMap[resp[i].city] = [resp[i].longitude, resp[i].latitude];
+
+                }
+
+                var location_name = [];
+                for (let i = 0; i < location.length; i++) {
+                    if (location_name.indexOf(location[i]) == -1) {
+                        location_name.push(location[i])
+                    }
+                }
+                var location_count = new Array(location_name.length);
+                for (let t = 0; t < location_count.length; t++) {
+                    location_count[t] = 0;
+                }
+                for (let p = 0; p < location_name.length; p++) {
+                    for (var j = 0; j < location.length; j++) {
+                        if (location_name[p] == location[j]) {
+                            location_count[p]++;
+                        }
+                    }
+
+                }
+                for (let m = 0; m < location_name.length; m++) {
+                    console.log(location_name[m] + "重复的次数为：" + location_count[m]);
+                    data[m] = { name: location_name[m], value: 70 * location_count[m] };
+                }
+
+
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('main'));
+
+                var convertData = function (data) {
+                    var res = [];
+                    for (var i = 0; i < data.length; i++) {
+                        var geoCoord = geoCoordMap[data[i].name];
+                        if (geoCoord) {
+                            res.push({
+                                name: data[i].name,
+                                value: geoCoord.concat(data[i].value)
+                            });
+                        }
+                    }
+                    return res;
+                };
+                console.log(data);
+                option = {
+                    backgroundColor: '#404a59',
+                    title: {
+                        text: 'MasterNodes',
+                        subtext: 'masternodes of Edgence across the world',
+                        sublink: 'http://www.edgence.org',
+                        left: 'center',
+                        textStyle: {
+                            color: '#fff'
+                        }
+                    },
+                    tooltip: {
+                        trigger: 'item'
+                    },
+                    legend: {
+                        orient: 'vertical',
+                        y: 'bottom',
+                        x: 'right',
+                        data: ['server'],
+                        textStyle: {
+                            color: '#fff'
+                        }
+                    },
+                    geo: {
+                        zoom: 2,
+                        map: 'world',
+                        label: {
+                            emphasis: {
+                                show: false
+                            }
+                        },
+                        roam: true,
+                        itemStyle: {
+                            normal: {
+                                areaColor: '#323c48',
+                                borderColor: '#111'
+                            },
+                            emphasis: {
+                                areaColor: '#2a333d'
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            name: 'server',
+                            type: 'scatter',
+                            coordinateSystem: 'geo',
+                            data: convertData(data),
+                            symbolSize: function (val) {
+                                return val[2] / 10;
+                            },
+                            label: {
+                                normal: {
+                                    formatter: '{b}',
+                                    position: 'right',
+                                    show: false
+                                },
+                                emphasis: {
+                                    show: true
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: '#ddb926'
+                                }
+                            }
+                        },
+                        {
+                            name: '',
+                            type: 'effectScatter',
+                            coordinateSystem: 'geo',
+                            // data: convertData(data.sort(function (a, b) {
+                            //     return b.value - a.value;
+                            // }).slice(0, 6)),
+                            data: convertData(data),
+                            symbolSize: function (val) {
+                                return val[2] / 10;
+                            },
+                            showEffectOn: 'render',
+                            rippleEffect: {
+                                brushType: 'stroke'
+                            },
+                            hoverAnimation: true,
+                            label: {
+                                normal: {
+                                    formatter: '{b}',
+                                    position: 'right',
+                                    show: true
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: '#f4e925',
+                                    shadowBlur: 10,
+                                    shadowColor: '#333'
+                                }
+                            },
+                            zlevel: 1
+                        }
+                    ]
+                };
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            },
+            error: function () {
+
+            }
+        });
+
+
+    };
+    ipToLocation();
+</script>
 {% endblock %}

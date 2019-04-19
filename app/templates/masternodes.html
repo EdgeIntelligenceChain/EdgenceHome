@@ -4,25 +4,25 @@
 {% block head %}
 {{ super() }}
 <meta charset="utf-8">
-<script src="../static/js/echarts.js"></script>
+<!-- <script src="../static/js/echarts.js"></script>
 <script src="../static/js/jquery.js"></Script>
 <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
-<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script> -->
 {% endblock %}
 
 {% block page_content %}
 <h1>masternodes</h1>
-<div id="main" style="width: 1200px;height:800px;"></div>
+<!-- <div id="main" style="width: 1200px;height:800px;"></div> -->
 {% endblock %}
 
 {% block scripts %}
 {{ super() }}
 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     var ipToLocation = function () {
         $.ajax({
             // url: 'http://127.0.0.1:5000/getServerInfoList',
-            url: 'http://172.106.33.51:80/getServerInfoList',
+            url: 'http://www.edgence.org/getServerInfoList',
             type: 'get',
             dataType: 'json',
             success: function (resp) {
@@ -187,5 +187,5 @@
 
     };
     ipToLocation();
-</script>
+</script> -->
 {% endblock %}
