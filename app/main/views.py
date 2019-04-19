@@ -1,4 +1,4 @@
-from flask import render_template,url_for,redirect
+from flask import render_template, url_for, redirect
 from . import main
 import IP2Location
 import json
@@ -12,8 +12,8 @@ def index():
     return render_template('index.html')
 
 
-@main.route('/masternodes')
-def masternodes():
+@main.route('/explorer')
+def explorer():
 	return redirect(url_for("explorer.blockexplorer"))
 
 @main.route('/getServerInfoList', methods=['GET'])
