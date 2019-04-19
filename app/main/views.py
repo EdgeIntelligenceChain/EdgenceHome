@@ -1,12 +1,13 @@
-from flask import render_template
+from flask import render_template,url_for,redirect
 from . import main
 
 
 @main.route('/')
 def index():
+    print(url_for('main.static',filename='1.jpg'))
     return render_template('index.html')
 
 @main.route('/masternodes')
 def masternodes():
-	return render_template('masternodes.html')
+	return redirect(url_for("explorer.blockexplorer"))
 
