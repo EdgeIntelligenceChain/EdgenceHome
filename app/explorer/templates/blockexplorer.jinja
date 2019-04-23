@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% extends "base.jinja" %}
 {% block content %}
+<script type="text/javascript" src="http://momentjs.cn/downloads/moment.js"></script>
 <script type="text/javascript">
 
 $(function() {
@@ -15,6 +16,20 @@ $(function() {
         $(this).find('input[type=submit]').hide();
     });
 });
+
+
+window.onload = function timestamp2time() {
+  
+    var list = []; 
+    list = $(".timestamp");
+    for (let i=0; i<list.length; i++){
+      let temp = $(".timestamp")[i].textContent;
+      temp = moment.unix(temp);
+      $(".timestamp")[i].textContent = temp;
+    }
+
+};
+
 </script>
 
     <div class="columns">
@@ -33,7 +48,7 @@ $(function() {
         {% if blockList %}
           <tr class="monoTable control"><td></td><td ><input name="blocksearch" class="input is-small is-primary submit_on_enter" type="text" placeholder="Block# Search..." ></td></tr>
         {% for key in blockList %}
-          <tr onclick="window.document.location='{{ url_for('explorer.block',block=key['block_header']['height'] ) }}';" class="monoTableClickable"><td>{{key['block_header']['timestamp']}}</td><td>{{ key['block_header']['height'] }}</td><td>{{ key['tx_hashes']|length }}</td><td>{{ key['block_header']['hash'] }}</td></tr>
+          <tr onclick="window.document.location='{{ url_for('explorer.block',block=key['block_header']['height'] ) }}';" class="monoTableClickable"><td class="timestamp">{{key['block_header']['timestamp']}}</td><td>{{ key['block_header']['height'] }}</td><td>{{ key['tx_hashes']|length }}</td><td>{{ key['block_header']['hash'] }}</td></tr>
         {% endfor %}
         {% else %}
           <tr><td>Err!</td><td>Err!</td><td>Err!</td><td>Err!</td></tr>
