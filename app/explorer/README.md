@@ -14,7 +14,7 @@ edgenceExplorer: A Simple Block Explorer for CryptoNote based cryptocurrencies
   * The example config files assume that you're running in a virtualenv under /srv/edgenceExplorer and using gunicorn to serve the site.
   * The NGINX config may require some tweaking for your site.
 
-To change the default host(127.0.0.1) and port(18081) of the Monero/CryptoNote daemon, there are variables set in the top of the edgenceExplorer.py file.
+To change the default host(127.0.0.1) and port(18081) of the Edgence/CryptoNote daemon, there are variables set in the top of the edgenceExplorer.py file.
 
 Quick Start
 ==========================
