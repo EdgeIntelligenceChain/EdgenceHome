@@ -17,10 +17,6 @@ import os
 import socket
 import json
 
-#Message(Message.Actions())
-#可以使用的 message = Message(Actions.BlockAtHeightReq,1,123)
-# 除以difficulty 记得除以1k message = Message(Actions.BlockstatsReq,1,123)
-#TODO:反序列化使用id属性，获得对应的hash值
 
 logging.basicConfig(
     level=getattr(logging, os.environ.get('TC_LOG_LEVEL', 'INFO')),
@@ -76,7 +72,8 @@ class EdgeExplorerBridge(object):
     def CliBlockReq(self,height:int=1):
         
         try:
-            retBlock=self.CliObjReq(Message(Actions.BlockAtHeightReq,height,123))
+            # backend count block at 0 , this is a fix for front end
+            retBlock=self.CliObjReq(Message(Actions.BlockAtHeightReq,height-1,123))
         except Exception:
             raise Exception
 

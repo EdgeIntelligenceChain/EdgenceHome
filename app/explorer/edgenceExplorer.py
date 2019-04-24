@@ -96,12 +96,12 @@ def blockexplorer():
             raise Exception
         
         result=[]
-        for i in range(lower,upper):
+        for i in range(lower,upper+1):
             result.append(getBlock(i))
         return result
 
     blockList=[]
-    resultList=inlineGetUpper(height-15,height+1)
+    resultList=inlineGetUpper(height-14,height)
     blockList=[block for block,txObj in resultList]
     blockList=blockList[::-1]
 
