@@ -8,13 +8,14 @@ from flask import make_response
 
 @main.route('/')
 def index():
-    print(url_for('main.static',filename='1.jpg'))
+    print(url_for('main.static', filename='1.jpg'))
     return render_template('index.html')
 
 
 @main.route('/explorer')
 def explorer():
-	return redirect(url_for("explorer.blockexplorer"))
+    return redirect(url_for("explorer.blockexplorer"))
+
 
 @main.route('/getServerInfoList', methods=['GET'])
 def getServerInfoList():
