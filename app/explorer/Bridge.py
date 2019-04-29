@@ -73,7 +73,7 @@ class EdgeExplorerBridge(object):
         
         try:
             # backend count block at 0 , this is a fix for front end
-            retBlock=self.CliObjReq(Message(Actions.BlockAtHeightReq,height-1,123))
+            retBlock=self.CliObjReq(Message(Actions.BlockAtHeightReq,height,123))
         except Exception:
             raise Exception
 
@@ -136,5 +136,5 @@ class EdgeExplorerBridge(object):
                 'tx_hash':txObj.id,
                 'block_height':blockHeight
             },
-            Utils.serialize(txObj)
+            json.loads(Utils.serialize(txObj))
         )

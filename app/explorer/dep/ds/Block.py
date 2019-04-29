@@ -45,7 +45,7 @@ class Block(NamedTuple):
     version: int
     prev_block_hash: str
     merkle_hash: str
-    timestamp: int
+    timestamp: float
     bits: int
     nonce: int
     txns: Iterable[Transaction]

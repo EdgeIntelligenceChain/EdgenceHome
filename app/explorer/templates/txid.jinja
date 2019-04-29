@@ -3,42 +3,94 @@
 {% block content %}
 
 
-    <div class="columns">
-      <div class="column" style="overflow-x:auto;">
-        <table class="table is-striped is-narrow is-bordered">
-          <thead>
-            <tr>
-              <th>Found in Block</th>
-              <th>Hash</th>
-            </tr>
-          </thead>
-          <tbody>
+<div class="columns">
+  <div class="column" style="overflow-x:auto;">
+    <table class="table is-striped is-narrow is-bordered">
+      <thead>
+        <tr>
+          <th>Found in Block</th>
+          <th>Hash</th>
+        </tr>
+      </thead>
+      <tbody>
         {% if txData[0] %}
-          <tr class="monoTable"><td><a href='{{ url_for('explorer.block',block= txData[0]['block_height']) }}'>{{txData[0]['block_height']}}</a></td><td>{{txData[0]['tx_hash']}}</td></tr>
+        <tr class="monoTable">
+          <td><a
+              href="{{ url_for('explorer.block',block= txData[0]['block_height']) }}">{{txData[0]['block_height']}}</a>
+          </td>
+          <td>{{txData[0]['tx_hash']}}</td>
+        </tr>
         {% else %}
-          <tr><td>Err!</td><td>Err!</td><td>Err!</td><td>Err!</td></tr>
+        <tr>
+          <td>Err!</td>
+          <td>Err!</td>
+          <td>Err!</td>
+          <td>Err!</td>
+        </tr>
         {% endif %}
-          </tbody>
-        </table>  
-      </div>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="columns">
+  {% if txData[1] %}
+  <div class="column" style="overflow-x:auto;">
+
+    <div class="column">
+      <article class="message">
+        <div class="message-header">
+          <p class="is-4"><b>transaction Data:</b></p>
+        </div>
+      </article>
+    </div>
+    <table class="table is-striped is-narrow">
+      <thead>
+        <tr>
+          <th>_type</th>
+          <th>locktime</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="monoTable">
+          <td>{{ txData[1]['_type'] }}</td>
+          <td>{{ txData[1]['locktime'] }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    {% for name in ['txins','txouts'] %}
+    <div class="column">
+      <article class="message">
+        <div class="message-header">
+          <p class="is-4"><b>{{ name }}:</b></p>
+        </div>
+      </article>
     </div>
 
-    <div class="columns">
-      <div class="column">
-          <article class="message is-danger">
-            <div class="message-header">
-                <p class="is-4"><b>Raw transaction:</b></p>
-            </div>
-          </article>
-      </div>
-    </div>
-    <div class="columns">
-      <div class="column" style="overflow-x:auto;">
-        {% if txData[1] %}
-          <pre class="monoData">{{txData[1]|replace("\\n", "")|wordwrap}}</pre>
-        {% else %}
-          <p class="monoData">Err!</p>
-        {% endif %}
-      </div>
-    </div>
+    <table class="table is-striped is-narrow">
+      <thead>
+        <tr>
+          {% for k in txData[1][name][0] %}
+          <th>{{ k }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for baseItem in txData[1][name] %}
+        <tr class="monoTable">
+          {% for v in baseItem.values() %}
+          <td>{{ v }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endfor %}
+
+  </div>
+  {% else %}
+  <p class="monoData">Err!</p>
+  {% endif %}
+</div>
 {% endblock %}

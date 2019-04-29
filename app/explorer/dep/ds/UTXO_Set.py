@@ -4,8 +4,8 @@ from typing import (
     Iterable, NamedTuple, Dict, Mapping, Union, get_type_hints, Tuple,
     Callable)
 
-from dep.ds.UnspentTxOut import UnspentTxOut
-from dep.ds.OutPoint import OutPoint
+from ..ds.UnspentTxOut import UnspentTxOut
+from ..ds.OutPoint import OutPoint
 
 
 

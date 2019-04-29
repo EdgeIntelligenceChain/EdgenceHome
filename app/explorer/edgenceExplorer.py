@@ -4,7 +4,7 @@ from collections import OrderedDict
 from operator import itemgetter
 from flask import Flask, render_template, request, send_from_directory, jsonify, redirect, url_for,abort
 from flask_caching import Cache
-import requests
+import json
 
 from .Bridge import EdgeExplorerBridge
 from config import explorerConfig
