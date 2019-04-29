@@ -68,7 +68,7 @@
       </article>
     </div>
 
-    <table class="table is-striped is-narrow">
+    <<<<<<< HEAD <table class="table is-striped is-narrow">
       <thead>
         <tr>
           {% for k in txData[1][name][0] %}
@@ -85,12 +85,23 @@
         </tr>
         {% endfor %}
       </tbody>
-    </table>
-    {% endfor %}
+      </table>
+      {% endfor %}
 
   </div>
   {% else %}
   <p class="monoData">Err!</p>
   {% endif %}
 </div>
+<script type="text/javascript" src="http://momentjs.cn/downloads/moment.js"></script>
+<script type="text/javascript">
+  window.onload = function timestamp2time() {
+
+    let temp = $(".monoTable td:last").text();
+    console.log(temp);
+    temp = moment.unix(temp);
+    $(".monoTable td:last").text() = temp;
+
+  };
+</script>
 {% endblock %}

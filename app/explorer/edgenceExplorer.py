@@ -32,10 +32,10 @@ def is_hex(s):
 @cache.memoize(timeout=6000)
 def getBlock(height=1):
     block,txDict=bridgeInstance.CliBlockReq(height)
-    try:
-        block['block_header']['timestamp'] = time.strftime("%d %b %Y %H:%M:%S", time.gmtime(block['block_header']['timestamp']))
-    except:
-        block['block_header']['timestamp'] = "Err!"
+    # try:
+    #     block['block_header']['timestamp'] = time.strftime("%d %b %Y %H:%M:%S", time.gmtime(block['block_header']['timestamp']))
+    # except:
+    #     block['block_header']['timestamp'] = "Err!"
     return block,txDict
 
 
