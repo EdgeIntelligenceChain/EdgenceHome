@@ -25,6 +25,7 @@ window.onload = function timestamp2time() {
     for (let i=0; i<list.length; i++){
       let temp = $(".timestamp")[i].textContent;
       temp = moment.unix(temp);
+      temp = moment().format('YYYY-MM-DD HH:mm:ss');
       $(".timestamp")[i].textContent = temp;
     }
 

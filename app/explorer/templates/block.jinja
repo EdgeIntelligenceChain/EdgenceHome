@@ -49,6 +49,7 @@
 
         let temp = $('tr.monoTable:last td')[1].textContent;
         temp = moment.unix(temp);
+        temp = moment().format('YYYY-MM-DD HH:mm:ss');
         $('tr.monoTable:last td')[1].textContent = temp;
 
     };
