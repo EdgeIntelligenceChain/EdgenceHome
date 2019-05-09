@@ -292,8 +292,7 @@
 <script type="text/javascript">
     var ipToLocation = function () {
         $.ajax({
-            // url: 'http://127.0.0.1:5000/getServerInfoList',
-            url: 'http://www.edgence.org/getServerInfoList',
+            url: '/getServerInfoList',
             type: 'get',
             dataType: 'json',
             success: function (resp) {
