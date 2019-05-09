@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <script type="text/javascript" src="http://momentjs.cn/downloads/moment.js"></script>
+    <script type="text/javascript" src="//momentjs.cn/downloads/moment.js"></script>
     <script type="text/javascript">
 
     window.onload = function timestamp2time() {
@@ -49,6 +49,7 @@
 
         let temp = $('tr.monoTable:last td')[1].textContent;
         temp = moment.unix(temp);
+        temp = moment().format('YYYY-MM-DD HH:mm:ss');
         $('tr.monoTable:last td')[1].textContent = temp;
 
     };
