@@ -1,4 +1,4 @@
-## Ubuntu下启动方式
+## Ubuntu下开发环境启动方式
 
 ### 1.建立并切换到python虚拟环境
 
@@ -116,7 +116,7 @@ pip install gunicorn
 在后台方式启动gunicorn，保证ssh断开后程序也能正常运行
 
 ```
-nohup gunicorn -w 4 -b 127.0.0.1:8000 start:app &
+nohup gunicorn -w 6 -b 127.0.0.1:8000 start:app&
 ```
 
 - -w参数表示启动多少个worker处理网络请求
@@ -124,9 +124,18 @@ nohup gunicorn -w 4 -b 127.0.0.1:8000 start:app &
 
 4. 测试访问
 
-在浏览器中直接输入网址 http://45.58.54.216 进行访问，默认端口为nginx.conf中设置的80端口。
+浏览器中输入服务器地址进行访问，默认端口为nginx.conf中设置的80端口。
 
 若要修改端口，则修改nginx的配置文件并重新加载，在ip后加<code>:port</code>的形式访问。
+
+5. 重启
+
+```
+查找主进程号
+pstree -ap|grep gunicorn
+重启
+kill -HUP 进程号
+```
 
 --------------------------------------------------------------
 flask官方文档：http://flask.pocoo.org/docs/1.0/
