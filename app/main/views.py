@@ -5,7 +5,8 @@ import json
 from flask import jsonify
 from flask import make_response
 
-
+# import httplib2
+# from urllib.parse import urlencode
 @main.route('/')
 def index():
     print(url_for('main.static', filename='1.jpg'))
@@ -47,4 +48,14 @@ def getServerInfoList():
     response.headers['Access-Control-Allow-Methods'] = 'GET,POST'
     response.headers['Access-Control-Allow-Headers'] = 'x-requested-with,content-type'    
     resp = json.dumps(res)
+
+    # ip138接口
+    # params = urlencode({'ip':'118.28.8.8','datatype':'','callback':''})
+    # url = 'https://ipapi.ipip.net/find?addr=118.28.8.8'
+    # headers = {"token":"cc87f3c77747bccbaaee35006da1ebb65e0bad57"}#token为示例
+    # http = httplib2.Http()
+    # response, content = http.request(url,'GET',headers=headers)
+    # res = content.decode("utf-8") 
+    # print(res)
+
     return resp
