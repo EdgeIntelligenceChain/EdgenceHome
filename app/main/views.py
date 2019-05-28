@@ -22,11 +22,14 @@ def explorer():
 def getServerInfoList():
     IP2LocObj = IP2Location.IP2Location()
     IP2LocObj.open('app/main/static/IP2LOCATION-LITE-DB5.BIN')
-    # 19.5.10.1
-    # 210.125.84.15
-    # 169.235.24.133
-    # 116.21.94.96
-    # IPList = ['47.111.168.213', '47.102.41.81', '47.88.63.126', '161.117.84.146', '39.97.166.176', '47.92.85.186', '45.58.54.216']
+    # LocalIPList = ['47.111.168.213', '47.102.41.81', '47.88.63.126', '161.117.84.146', '39.97.166.176', '47.92.85.186', '45.58.54.216']
+    IpReplaceDic = {'47.88.63.126':'104.156.230.107', 
+                    '161.117.84.146':'103.233.82.251', 
+                    '47.111.168.213':'47.92.85.186',
+                    '45.58.54.216':'45.58.54.216', 
+                    '39.97.166.176':'123.125.71.38', 
+                    '47.92.85.186':'124.239.26.95', 
+                    '47.102.41.81':'101.227.66.81'} 
     IPList = []
     file1 = open('app/main/static/ip.txt')
     for line in file1:
@@ -34,7 +37,10 @@ def getServerInfoList():
     file1.close()
     
     res = []
+
     for ip in IPList:
+        if ip in IpReplaceDic:
+            ip = IpReplaceDic[ip]
         loc = IP2LocObj.get_all(ip)
         info = {'country_short': str(loc.country_short, encoding='utf-8'),
                 'country_long': str(loc.country_long, encoding='utf-8'),
@@ -48,14 +54,5 @@ def getServerInfoList():
     response.headers['Access-Control-Allow-Methods'] = 'GET,POST'
     response.headers['Access-Control-Allow-Headers'] = 'x-requested-with,content-type'    
     resp = json.dumps(res)
-
-    # ip138接口
-    # params = urlencode({'ip':'118.28.8.8','datatype':'','callback':''})
-    # url = 'https://ipapi.ipip.net/find?addr=118.28.8.8'
-    # headers = {"token":"cc87f3c77747bccbaaee35006da1ebb65e0bad57"}#token为示例
-    # http = httplib2.Http()
-    # response, content = http.request(url,'GET',headers=headers)
-    # res = content.decode("utf-8") 
-    # print(res)
 
     return resp
