@@ -1,0 +1,179 @@
+[2019-05-06 14:30:18 +0800] [3606] [INFO] Starting gunicorn 19.9.0
+[2019-05-06 14:30:18 +0800] [3606] [INFO] Listening at: http://127.0.0.1:8000 (3606)
+[2019-05-06 14:30:18 +0800] [3606] [INFO] Using worker: sync
+[2019-05-06 14:30:18 +0800] [3629] [INFO] Booting worker with pid: 3629
+[2019-05-06 14:30:18 +0800] [3630] [INFO] Booting worker with pid: 3630
+[2019-05-06 14:30:18 +0800] [3631] [INFO] Booting worker with pid: 3631
+[2019-05-06 14:30:18 +0800] [3632] [INFO] Booting worker with pid: 3632
+[2019-05-06 14:30:18 +0800] [3631] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/xiayu/project/EdgenceHome/start.py", line 4, in <module>
+    app=create_app(os.getenv('FLASK_CONFIG') or 'default')
+  File "/home/xiayu/project/EdgenceHome/app/__init__.py", line 25, in create_app
+    from .main import main as main_blueprint
+  File "/home/xiayu/project/EdgenceHome/app/main/__init__.py", line 5, in <module>
+    from . import views, errors
+  File "/home/xiayu/project/EdgenceHome/app/main/views.py", line 3, in <module>
+    import IP2Location
+ModuleNotFoundError: No module named 'IP2Location'
+[2019-05-06 14:30:18 +0800] [3632] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/xiayu/project/EdgenceHome/start.py", line 4, in <module>
+    app=create_app(os.getenv('FLASK_CONFIG') or 'default')
+  File "/home/xiayu/project/EdgenceHome/app/__init__.py", line 25, in create_app
+    from .main import main as main_blueprint
+  File "/home/xiayu/project/EdgenceHome/app/main/__init__.py", line 5, in <module>
+    from . import views, errors
+  File "/home/xiayu/project/EdgenceHome/app/main/views.py", line 3, in <module>
+    import IP2Location
+ModuleNotFoundError: No module named 'IP2Location'
+[2019-05-06 14:30:18 +0800] [3630] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/xiayu/project/EdgenceHome/start.py", line 4, in <module>
+    app=create_app(os.getenv('FLASK_CONFIG') or 'default')
+  File "/home/xiayu/project/EdgenceHome/app/__init__.py", line 25, in create_app
+    from .main import main as main_blueprint
+  File "/home/xiayu/project/EdgenceHome/app/main/__init__.py", line 5, in <module>
+    from . import views, errors
+  File "/home/xiayu/project/EdgenceHome/app/main/views.py", line 3, in <module>
+    import IP2Location
+ModuleNotFoundError: No module named 'IP2Location'
+[2019-05-06 14:30:18 +0800] [3629] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/xiayu/project/EdgenceHome/start.py", line 4, in <module>
+    app=create_app(os.getenv('FLASK_CONFIG') or 'default')
+  File "/home/xiayu/project/EdgenceHome/app/__init__.py", line 25, in create_app
+    from .main import main as main_blueprint
+  File "/home/xiayu/project/EdgenceHome/app/main/__init__.py", line 5, in <module>
+    from . import views, errors
+  File "/home/xiayu/project/EdgenceHome/app/main/views.py", line 3, in <module>
+    import IP2Location
+ModuleNotFoundError: No module named 'IP2Location'
+[2019-05-06 14:30:18 +0800] [3631] [INFO] Worker exiting (pid: 3631)
+[2019-05-06 14:30:18 +0800] [3632] [INFO] Worker exiting (pid: 3632)
+[2019-05-06 14:30:18 +0800] [3630] [INFO] Worker exiting (pid: 3630)
+[2019-05-06 14:30:18 +0800] [3629] [INFO] Worker exiting (pid: 3629)
+Traceback (most recent call last):
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 210, in run
+    self.sleep()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 360, in sleep
+    ready = select.select([self.PIPE[0]], [], [], 1.0)
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 245, in handle_chld
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/xiayu/project/edgenceExplorer/venv/bin/gunicorn", line 10, in <module>
+    sys.exit(run())
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 61, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/app/base.py", line 223, in run
+    super(Application, self).run()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 232, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 345, in halt
+    self.stop()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 393, in stop
+    time.sleep(0.1)
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 245, in handle_chld
+    self.reap_workers()
+  File "/home/xiayu/project/edgenceExplorer/venv/lib/python3.6/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+[2019-05-06 14:31:55 +0800] [3872] [INFO] Starting gunicorn 19.9.0
+[2019-05-06 14:31:55 +0800] [3872] [INFO] Listening at: http://127.0.0.1:8000 (3872)
+[2019-05-06 14:31:55 +0800] [3872] [INFO] Using worker: sync
+[2019-05-06 14:31:55 +0800] [3892] [INFO] Booting worker with pid: 3892
+[2019-05-06 14:31:55 +0800] [3894] [INFO] Booting worker with pid: 3894
+[2019-05-06 14:31:55 +0800] [3896] [INFO] Booting worker with pid: 3896
+[2019-05-06 14:31:55 +0800] [3898] [INFO] Booting worker with pid: 3898
+[2019-05-06 14:33:50 +0800] [3872] [CRITICAL] WORKER TIMEOUT (pid:3896)
+[2019-05-06 14:33:50 +0800] [3896] [INFO] Worker exiting (pid: 3896)
+[2019-05-06 14:33:50 +0800] [4371] [INFO] Booting worker with pid: 4371
+[2019-05-06 15:39:03 +0800] [3872] [INFO] Handling signal: hup
+[2019-05-06 15:39:03 +0800] [3872] [INFO] Hang up: Master
+[2019-05-06 15:39:03 +0800] [10133] [INFO] Booting worker with pid: 10133
+[2019-05-06 15:39:03 +0800] [10134] [INFO] Booting worker with pid: 10134
+[2019-05-06 15:39:03 +0800] [10135] [INFO] Booting worker with pid: 10135
+[2019-05-06 15:39:03 +0800] [10136] [INFO] Booting worker with pid: 10136
+[2019-05-06 16:11:08 +0800] [3872] [INFO] Handling signal: term
+[2019-05-06 16:11:08 +0800] [10134] [INFO] Worker exiting (pid: 10134)
+[2019-05-06 16:11:08 +0800] [10133] [INFO] Worker exiting (pid: 10133)
+[2019-05-06 16:11:08 +0800] [3872] [INFO] Shutting down: Master
+[2019-05-08 14:32:48 +0800] [10367] [INFO] Starting gunicorn 19.9.0
+[2019-05-08 14:32:48 +0800] [10367] [INFO] Listening at: http://127.0.0.1:8000 (10367)
+[2019-05-08 14:32:48 +0800] [10367] [INFO] Using worker: sync
+[2019-05-08 14:32:48 +0800] [10385] [INFO] Booting worker with pid: 10385
+[2019-05-08 14:32:48 +0800] [10387] [INFO] Booting worker with pid: 10387
+[2019-05-08 14:32:49 +0800] [10389] [INFO] Booting worker with pid: 10389
+[2019-05-08 14:32:49 +0800] [10390] [INFO] Booting worker with pid: 10390
+[2019-05-08 15:48:55 +0800] [10367] [INFO] Handling signal: term
+[2019-05-08 15:48:55 +0800] [10385] [INFO] Worker exiting (pid: 10385)
+[2019-05-08 15:48:55 +0800] [10387] [INFO] Worker exiting (pid: 10387)
+/app/main/static/1.jpg
+/app/main/static/1.jpg
+/app/main/static/1.jpg
+[2019-05-08 15:48:55 +0800] [10390] [INFO] Worker exiting (pid: 10390)
+[2019-05-08 15:48:55 +0800] [10389] [INFO] Worker exiting (pid: 10389)
+[2019-05-08 15:48:55 +0800] [10367] [INFO] Shutting down: Master
