@@ -1,2 +1,0 @@
-# EdgeHand
-Client of Edgence

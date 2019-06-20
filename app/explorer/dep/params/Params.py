@@ -55,6 +55,11 @@ class Params:
     HALVE_SUBSIDY_AFTER_BLOCKS_NUM = int(210_000)
     ACTIVE_CHAIN_IDX = int(0)
 
+    # Script type, we set 0 for P2PKH and 1 for P2PK
+    SCRIPT_TYPE = 0
+    P2SH_VERIFY_KEY = 2
+    P2SH_PUBLIC_KEY = 3
+
     TRIES_MAXIMUM = 1
 
     PEERS_FILE =  'seeds.node'
@@ -62,7 +67,6 @@ class Params:
 
     PEERS: Iterable[Tuple] = list([#('47.102.41.81', 9996),
                       #('47.111.168.213', 9996),
-                      ('39.97.166.176', 9996)
-                      #('127.0.0.1', 9996)
-                     ])
+                      #('39.97.166.176', 9996),
+                    ('127.0.0.1', 9999)])
 
