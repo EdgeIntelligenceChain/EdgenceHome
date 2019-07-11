@@ -47,14 +47,18 @@
     <table class="table is-striped is-narrow">
       <thead>
         <tr>
-          <th>_type</th>
           <th>locktime</th>
+          <th>serviceId</th>
+          <th>postId</th>
+          <th>data</th>
         </tr>
       </thead>
       <tbody>
         <tr class="monoTable">
-          <td>{{ txData[1]['_type'] }}</td>
           <td>{{ txData[1]['locktime'] }}</td>
+          <td>{{ txData[1]['serviceId'] }}</td>
+          <td>{{ txData[1]['postId'] }}</td>
+          <td>{{ txData[1]['data'] }}</td>
         </tr>
       </tbody>
     </table>
