@@ -47,20 +47,42 @@
     <table class="table is-striped is-narrow">
       <thead>
         <tr>
-          <th>locktime</th>
           <th>serviceId</th>
           <th>postId</th>
-          <th>data</th>
           <th>actionId</th>
         </tr>
       </thead>
       <tbody>
         <tr class="monoTable">
-          <td>{{ txData[1]['locktime'] }}</td>
           <td>{{ txData[1]['serviceId'] }}</td>
           <td>{{ txData[1]['postId'] }}</td>
-          <td>{{ txData[1]['data'] }}</td>
           <td>{{ txData[1]['actionId'] }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table is-striped is-narrow">
+      <thead>
+        <tr>
+          <th>locktime</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="monoTable">
+          <td>{{ txData[1]['locktime'] }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table  class="table is-striped is-narrow">
+      <thead>
+        <tr>
+          <th>data</th> 
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="monoTable">
+          <td>{{ txData[1]['data'] }}</td>
         </tr>
       </tbody>
     </table>
@@ -73,7 +95,7 @@
         </div>
       </article>
     </div>
- <table class="table is-striped is-narrow">
+    <table class="table is-striped is-narrow">
       <thead>
         <tr>
           {% for k in txData[1][name][0] %}
@@ -90,8 +112,8 @@
         </tr>
         {% endfor %}
       </tbody>
-      </table>
-      {% endfor %}
+    </table>
+    {% endfor %}
 
   </div>
   {% else %}
