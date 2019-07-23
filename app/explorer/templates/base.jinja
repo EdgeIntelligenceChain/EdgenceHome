@@ -87,10 +87,11 @@
 <body>
   <nav class="nav has-shadow" id="top">
     <div class="container">
-      <div class="nav-left">
-        <a class="nav-item" href="{{ url_for('explorer.blockexplorer') }}">
+      <div class="nav-left nav-menu">
+        <a class="nav-item is-tab {% if page=='index' %}is-active {% endif %}" href="{{ url_for('explorer.blockexplorer') }}">
            <!--Font is Comfortaa>-->
-          <img src="{{ url_for('explorer.static', filename='logo.png') }}" alt="SITENAME">
+          {# <img src="{{ url_for('explorer.static', filename='logo.png') }}" alt="SITENAME"> #}
+          Explorer
         </a>
       </div>
       <span class="nav-toggle">
@@ -122,7 +123,7 @@
  <div class="content-section-a footer">
     <div class="container">
         {# <img src="app/explorer/static/xiaohui.jpg" width=250px style="float:left;margin-right: 100px"> #}
-        <img src="https://www.edgence.org/explorer/app/explorer/static/xiaohui.jpg" width=250px style="float:left;margin-right: 100px">
+        <img src="app/explorer/static/xiaohui.jpg" width=250px style="float:left;margin-right: 100px">
         <p style="font-size:200%;margin-bottom:40px;color: black"> Affiliation and Foundation </p>
         <p>● State Key Laboratory of Networking and Switching Technology</p>
         <p>&nbsp;&nbsp;&nbsp;Beijing University of Posts and Telecommunications, China</p>
