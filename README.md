@@ -116,7 +116,7 @@ pip install gunicorn
 在后台方式启动gunicorn，保证ssh断开后程序也能正常运行
 
 ```
-nohup gunicorn -w 6 -b 127.0.0.1:8000 start:app&
+nohup gunicorn -w 6 -b 127.0.0.1:8000 start:app --access-logfile access.log --error-logfile error.log &
 ```
 
 - -w参数表示启动多少个worker处理网络请求
