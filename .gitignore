@@ -108,3 +108,6 @@ data-dev.sqlite
 # idea
 .idea
 .vscode
+
+# nohup
+nohup.out
