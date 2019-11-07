@@ -18,6 +18,11 @@ def explorer():
     return redirect(url_for("explorer.blockexplorer"))
 
 
+@main.route('/workshop')
+def workshop():
+	return main.send_static_file('workshop/networkservice.html')
+
+
 @main.route('/getServerInfoList', methods=['GET'])
 def getServerInfoList():
     IP2LocObj = IP2Location.IP2Location()
