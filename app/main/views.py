@@ -18,7 +18,7 @@ def explorer():
     return redirect(url_for("explorer.blockexplorer"))
 
 
-@main.route('/workshop')
+@main.route('/networkservice')
 def workshop():
 	return main.send_static_file('workshop/networkservice.html')
 
