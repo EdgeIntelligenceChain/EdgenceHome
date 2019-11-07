@@ -19,6 +19,7 @@ def explorer():
 
 
 @main.route('/networkservice')
+@main.route('/networkservice2020')
 def workshop():
 	return main.send_static_file('workshop/networkservice.html')
 
