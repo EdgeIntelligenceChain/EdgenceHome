@@ -71,7 +71,7 @@ nohup gunicorn -w 6 -b 127.0.0.1:8000 start:app --access-logfile access.log --er
 
 - `--access-logfile` 与 `--error-logfile` 字段指定了日志文件的保存位置
 
-查看相关进程树
+查看相关进程树，如下分别显示了网站主页EdgenceHome和论坛EdgenceForum这两个进程。
 ```
 root@edgence:~/EdgenceHome# pstree -ap|grep gunicorn
   |-gunicorn,513 /root/EdgenceHome/venv/bin/gunicorn -w 6 -b 127.0.0.1:8000 start:app --access-logfileaccess.lo
