@@ -71,6 +71,23 @@ nohup gunicorn -w 6 -b 127.0.0.1:8000 start:app --access-logfile access.log --er
 
 - `--access-logfile` 与 `--error-logfile` 字段指定了日志文件的保存位置
 
+查看相关进程树
+```
+root@edgence:~/EdgenceHome# pstree -ap|grep gunicorn
+  |-gunicorn,513 /root/EdgenceHome/venv/bin/gunicorn -w 6 -b 127.0.0.1:8000 start:app --access-logfileaccess.lo
+  |   |-gunicorn,726 /root/EdgenceHome/venv/bin/gunicorn -w 6 -b 127.0.0.1:8000 start:app --access-logfileaccess.lo
+  |   |-gunicorn,727 /root/EdgenceHome/venv/bin/gunicorn -w 6 -b 127.0.0.1:8000 start:app --access-logfileaccess.lo
+  |   |-gunicorn,728 /root/EdgenceHome/venv/bin/gunicorn -w 6 -b 127.0.0.1:8000 start:app --access-logfileaccess.lo
+  |   |-gunicorn,729 /root/EdgenceHome/venv/bin/gunicorn -w 6 -b 127.0.0.1:8000 start:app --access-logfileaccess.lo
+  |   |-gunicorn,730 /root/EdgenceHome/venv/bin/gunicorn -w 6 -b 127.0.0.1:8000 start:app --access-logfileaccess.lo
+  |   `-gunicorn,731 /root/EdgenceHome/venv/bin/gunicorn -w 6 -b 127.0.0.1:8000 start:app --access-logfileaccess.lo
+  |-gunicorn,5533 /root/EdgenceForum/.venv/bin/gunicorn -w 2 -b 127.0.0.1:5000 wsgi:flaskbb --log-filelogs/gun
+  |   |-gunicorn,5539 /root/EdgenceForum/.venv/bin/gunicorn -w 2 -b 127.0.0.1:5000 wsgi:flaskbb --log-filelogs/gun
+  |   `-gunicorn,5540 /root/EdgenceForum/.venv/bin/gunicorn -w 2 -b 127.0.0.1:5000 wsgi:flaskbb --log-filelogs/gun
+  |           |-grep,5999 --color=auto gunicorn
+root@edgence:~/EdgenceHome# 
+```
+
 4. forum 界面对应的安装
 
 见：https://github.com/EdgeIntelligenceChain/EdgenceForum/issues/1#issuecomment-498134553
