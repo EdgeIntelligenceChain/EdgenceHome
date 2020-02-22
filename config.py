@@ -39,7 +39,7 @@ config = {
     'default': DevelopmentConfig
 }
 
-explorerConfig={
+explorerConfig={ # 浏览器要连接的区块链节点的IP和端口信息，以获得区块链的实时信息
     'ip':'127.0.0.1',
     'port':9996
 }
