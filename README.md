@@ -87,7 +87,10 @@ root@edgence:~/EdgenceHome# pstree -ap|grep gunicorn
   |           |-grep,5999 --color=auto gunicorn
 root@edgence:~/EdgenceHome# 
 ```
-
+杀死进程：
+```
+kill 513
+```
 4. forum 界面对应的安装
 
 见：https://github.com/EdgeIntelligenceChain/EdgenceForum/issues/1#issuecomment-498134553
