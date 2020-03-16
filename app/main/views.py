@@ -48,10 +48,13 @@ def getServerInfoList():
         if ip in IpReplaceDic:
             ip = IpReplaceDic[ip]
         loc = IP2LocObj.get_all(ip)
-        info = {'country_short': str(loc.country_short, encoding='utf-8'),
-                'country_long': str(loc.country_long, encoding='utf-8'),
-                'region': str(loc.region, encoding='utf-8'),
-                'city': str(loc.city, encoding='utf-8'),
+
+        # prev format is "country_short": str(loc.country_short, encoding="utf-8")
+        # error: decoding str is not supported
+        info = {'country_short': loc.country_short,
+                'country_long': loc.country_long,
+                'region': loc.region,
+                'city': loc.city,
                 'latitude': loc.latitude,
                 'longitude': loc.longitude}
         res.append(info)
